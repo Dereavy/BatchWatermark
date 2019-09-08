@@ -1,5 +1,5 @@
 # BatchWatermark
-Shell script watermarks a batch of images.
+Shell script that applies a watermark to a batch of images.
 
 ## Description:
 Resizes images, looks for a watermark.png image in the folder and applies it to all images.
