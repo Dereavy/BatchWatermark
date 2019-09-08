@@ -1,16 +1,9 @@
 #!/bin/bash
-# Script location ex:
-# 		/mnt/c/Users/kinga/OneDrive/Desktop/PaintingsResize/ResizeAndWatermark.sh
-
-# Resizes an image, looks for a watermark.png image in the folder and applies it to image.
-# Asks the user to resize the images to a certain width.
-# Requires https://imagemagick.org/script/download.php
 
 # Instructions:
 #  - Drag script in folder containing images and watermark.png.
 #  - Run the script
 #  - Let the script watermark your images
-
 
 # Path of the folder containing the script:
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
