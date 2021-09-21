@@ -4,6 +4,21 @@
 #  - Drag script in folder containing images and watermark.png.
 #  - Run the script
 #  - Let the script watermark your images
+WATERMARK_LOCATION="center"
+
+while getopts 'l:' OPTION; do
+	case "$OPTION" in
+		l)
+			iarg="$OPTARG"
+			WATERMARK_LOCATION="$iarg"
+			echo "Watermark location $WATERMARK_LOCATION will be used"
+			;;
+		*)
+			echo "Usage: $0 [-l value]" >&2
+		;;
+	esac
+done
+
 
 # Path of the folder containing the script:
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
@@ -70,15 +85,16 @@ esac
 				WATERMARKEDIMAGE=$WATERMARKED"/"$IMAGENAME
 				if [ -d "$RESIZED" ]; then
 					echo "Applying watermark: -> "$IMAGENAME
-					composite -dissolve 15% -gravity center $WATERMARKIMG $thumbnail $RESIZEDIMAGE
+					composite -dissolve 15% -gravity $WATERMARK_LOCATION $WATERMARKIMG $thumbnail $RESIZEDIMAGE
 					convert $RESIZEDIMAGE'[640000@]' $RESIZEDIMAGE
-					composite -dissolve 30% -gravity center $WATERMARKIMG $thumbnail $WATERMARKEDIMAGE
+					composite -dissolve 30% -gravity $WATERMARK_LOCATION $WATERMARKIMG $thumbnail $WATERMARKEDIMAGE
 				else
 					echo "Applying watermark: -> "$IMAGENAME
-					composite -dissolve 30% -gravity center $WATERMARKIMG $thumbnail $WATERMARKEDIMAGE
+					composite -dissolve 30% -gravity $WATERMARK_LOCATION $WATERMARKIMG $thumbnail $WATERMARKEDIMAGE
 				fi
 			fi
 		done
 		echo "Done!"
 	
 exit 0
+

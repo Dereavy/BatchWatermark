@@ -9,6 +9,10 @@ Asks the user if he wants to resize the images to a certain width, in which case
   - Drag script in folder containing images and watermark.png.
   - Run the script, I use the Windows Subsystem for Linux (WSL) command prompt.
   - Let the script watermark your images.
-  
+
+## Parameters:
+
+  - -l: Watermark location. Possible values: https://imagemagick.org/script/command-line-options.php#gravity
+
 ## Dependencies:
 Requires Imagemagick https://imagemagick.org/script/download.php
